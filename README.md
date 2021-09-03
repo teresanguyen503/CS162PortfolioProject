@@ -1,3 +1,5 @@
+# Focus/Domination
+
 Write a class named FocusGame for playing an abstract board game called Focus/Domination. You can see the rules at https://en.wikipedia.org/wiki/Focus_%28board_game%29.
 
 Write your code for two-player version of the game.
