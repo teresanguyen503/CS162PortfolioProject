@@ -200,15 +200,20 @@ class FocusGame:
                 elif ((a == x + num or a == x - num) and (b == y)) or ((b == y + num or b == y - num) and (a == x)):
                     if self._preset_board[x][y][-1] == self._color_1:  # if player matches its' color
                         self.multiple_move_1(player, coordinate_from, to_location, num)
+                        print("Successfully moved")
                         return "successfully moved"
                     else:
                         self.multiple_move_2(player, coordinate_from, to_location, num)
+                        print("Successfully moved")
                         return "successfully moved"
                 else:
+                    print("Invalid location")
                     return "Invalid location"
             else:
+                print("Invalid number of pieces")
                 return "Invalid number of pieces"
         else:
+            print("Not your turn")
             return "Not your turn "
 
     def show_pieces(self, position):
@@ -303,9 +308,9 @@ class FocusGame:
 
 
 game = FocusGame(("PlayerA", "R"), ("PlayerB", "G"))
-# game.move_piece("PlayerA", (0, 1), (0, 2), 1)
-# game.move_piece("PlayerB", (0, 3), (0, 2), 1)
-# game.move_piece("PlayerA", (0, 4), (1, 4), 1)
+game.move_piece("PlayerA", (0, 1), (0, 2), 1)
+game.move_piece("PlayerA", (0, 3), (0, 2), 1)
+# game.move_piece("PlayerB", (0, 4), (1, 4), 1)
 # game.move_piece("PlayerB", (0, 2), (0, 5), 3)
 # game.reserve_move("PlayerA", (0, 1))
 
