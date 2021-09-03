@@ -35,6 +35,7 @@ class FocusGame:
         self._reserve_player_2 = []        # contains reserved pieces for player 2
         self._capture_player_1 = []        # contains player 2's pieces that has been captured
         self._capture_player_2 = []        # contains player 1's pieces that has been captured
+        self._game_over = False 
 
     def get_preset_board(self):
         return self._preset_board
@@ -179,7 +180,7 @@ class FocusGame:
 
         """ Represents the game already had a winner"""
         if self._current_state == "WINNER":
-            return False
+            return self._game_over is True
 
     def move_piece(self, player, coordinate_from, to_location, num):
 
@@ -192,9 +193,11 @@ class FocusGame:
                 if (a == x + 1 or a == x - 1) or (b == y + 1 or b == y - 1):
                     if self._preset_board[x][y][-1] == self._color_1:  # if player matches its' color
                         self.single_move_1(player, coordinate_from, to_location, num)
+                        print("Successfully moved")
                         return "successfully moved"
                     else:
                         self.single_move_2(player, coordinate_from, to_location, num)
+                        print("Successfully moved")
                         return "successfully moved"
         # if player is making multiple moves
                 elif ((a == x + num or a == x - num) and (b == y)) or ((b == y + num or b == y - num) and (a == x)):
@@ -309,8 +312,8 @@ class FocusGame:
 
 game = FocusGame(("PlayerA", "R"), ("PlayerB", "G"))
 game.move_piece("PlayerA", (0, 1), (0, 2), 1)
-game.move_piece("PlayerA", (0, 3), (0, 2), 1)
-# game.move_piece("PlayerB", (0, 4), (1, 4), 1)
+game.move_piece("PlayerB", (0, 3), (0, 2), 1)
+game.move_piece("PlayerA", (0, 1), (0, 2), 1)
 # game.move_piece("PlayerB", (0, 2), (0, 5), 3)
 # game.reserve_move("PlayerA", (0, 1))
 
