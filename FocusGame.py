@@ -3,8 +3,6 @@
 # Description: Create a 6x6 board game in order to play the abstract board game called Focus/Domination.
 # This is set up for a two-player version of the game.
 
-from pprint import pprint
-
 
 class FocusGame:
     """Represents the 6x6 board game"""
@@ -309,14 +307,3 @@ class FocusGame:
         else:
             return
 
-
-game = FocusGame(("PlayerA", "R"), ("PlayerB", "G"))
-game.move_piece("PlayerA", (0, 1), (0, 2), 1)
-game.move_piece("PlayerB", (0, 3), (0, 2), 1)
-game.move_piece("PlayerA", (0, 1), (0, 2), 1)
-# game.move_piece("PlayerB", (0, 2), (0, 5), 3)
-# game.reserve_move("PlayerA", (0, 1))
-
-
-
-pprint(game.get_preset_board())
